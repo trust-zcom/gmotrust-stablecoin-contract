@@ -1,0 +1,15 @@
+{
+    "production": false,
+    "name_suffix": "dev",
+    "symbol_suffix": "d",
+    "capper": "0x85FC446D9a6D320E5AD5894CDDc4125b316C0257",
+    "owner": "0xc339101f4743b3f4af3e11d8c29e50cfd64922d4",
+    "deployer": "0x3cde718e0492b6a4f85f6b5e0614300093da0a3c",
+    "minterAdmin": "0x7c13bbf4ea5d2288938bc348d65386ec03134058",
+    "admin": "0xf1e7de7a11730ecc4e114257ec9e0afa14f3d94a",
+    "burning_factory_manager": "0x81fe71413675aacf4eaed305efb1e9e033504d7b",
+    "minter": "0x7eb28379950f66b64599e80aeb7cb78eb332cdb9",
+    "pauser": "0xf115598a3082996e8063537c94f7b740b1f97d6c",
+    "prohibiter": "0x9859e439f3ecacb04e6a02b60395f21a3dd71d58",
+    "burner": "0x5a2031c29ae359caae4a0e0e3daf86ccc6e03773"
+}
