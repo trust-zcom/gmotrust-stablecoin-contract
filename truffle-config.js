@@ -61,6 +61,7 @@ module.exports = {
     production: {
       network_id: "1",
       provider: () => new HDWalletProvider(privateKeyProduction, "https://mainnet.infura.io/v3/7e1994c8834b4c61814e608fbb640810"),
+      gasPrice: 0,
       //gasPrice: 10000000000,
       //gas: 4000000
     },
