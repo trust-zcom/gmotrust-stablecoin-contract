@@ -34,12 +34,12 @@ case $2 in
 
     3)
         # must not use old deployer
-        npx truffle exec ./validate_contract_v1.js --network $1
+        npx truffle exec ./validate_contract.js 1 --network $1
         ;;
 
     4)
         # must not use new deployer
-        npx truffle exec ./validate_contract_v2.js --network $1
+        npx truffle exec ./validate_contract.js 2 --network $1
         ;;
 
     *)
