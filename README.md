@@ -55,7 +55,7 @@ End users can burn tokens by calling `burn()` themselves — in such a case the 
 
 ## Wipe
 
-`wipe` is another security feature. `wiper` can wipe out the balance of an address upon instructions from law enforcement agencies.
+`wipe` is another security feature. `wiper` can wipe out the balance of an address upon instructions from law enforcement agencies. In such cases, the underlying fiat currency will be handled according to law enforcement’s instructions.
 
 ## Upgrading
 
