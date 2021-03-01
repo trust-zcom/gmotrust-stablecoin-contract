@@ -60,10 +60,9 @@ module.exports = {
     },
     production: {
       network_id: "1",
-      provider: () => new HDWalletProvider(privateKeyProduction, "https://mainnet.infura.io/v3/7e1994c8834b4c61814e608fbb640810"),
-      gasPrice: 0,
-      //gasPrice: 10000000000,
-      //gas: 4000000
+      provider: () => new HDWalletProvider(privateKeyProduction, "https://mainnet.infura.io/v3/<YOUR PROJECT ID>"),
+      gasPrice: 100000000000,
+      gas: 4000000
     },
     test: {
       host: "127.0.0.1",
@@ -72,19 +71,19 @@ module.exports = {
     },
     ropsten: {
       network_id: "3",
-      provider: () => new HDWalletProvider(privateKey, "https://ropsten.infura.io/v3/7e1994c8834b4c61814e608fbb640810"),
+      provider: () => new HDWalletProvider(privateKey, "https://ropsten.infura.io/v3/<YOUR PROJECT ID>"),
       gasPrice: 40000000000,
       gas: 4000000
     },
     kovan: {
       network_id: "42",
-      provider: () => new HDWalletProvider(privateKey, "https://kovan.infura.io/v3/7e1994c8834b4c61814e608fbb640810"),
+      provider: () => new HDWalletProvider(privateKey, "https://kovan.infura.io/v3/<YOUR PROJECT ID>"),
       gasPrice: 20000000000,
       gas: 4000000
     }, 
     rinkeby: {
       network_id: "4",
-      provider: () => new HDWalletProvider(privateKey, "https://rinkeby.infura.io/v3/7e1994c8834b4c61814e608fbb640810"),
+      provider: () => new HDWalletProvider(privateKey, "https://rinkeby.infura.io/v3/<YOUR PROJECT ID>"),
       //gasPrice: 20000000000,
       //as: 4000000
     },       
@@ -94,7 +93,13 @@ module.exports = {
   mocha: {
     // timeout: 100000
   },
-
+  plugins: [
+    'truffle-plugin-verify'
+  ],
+  api_keys: {
+    // Change to API_KEYS with yours. 
+    etherscan: "<YOUR ETHERSCAN API_KEYS>",
+  },
   // Configure your compilers
   compilers: {
     solc: {
