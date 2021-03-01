@@ -1,10 +1,10 @@
 {
     "production": false,
     "name_suffix": " kovan",
-    "symbol_suffix": "YY",
+    "symbol_suffix": "",
     "capper": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
     "owner": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
-    "deployer": "0xc4960f4bb9843e7a512e6f38b9acef82b114fdaf",
+    "deployer": "0x4739f57e74d84041050c8443ceaa7c602bb28887",
     "minterAdmin": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
     "admin": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
     "burning_factory_manager": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
@@ -12,5 +12,5 @@
     "pauser": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
     "prohibiter": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
     "burner": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
-    "wiper": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8"
+    "wiper": "0xe4e2cdb1280cb0fae97889d053002d66488edde5"
 }

@@ -1,10 +1,10 @@
 {
     "production": false,
     "name_suffix": " ropsten",
-    "symbol_suffix": "XX",
+    "symbol_suffix": "",
     "capper": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
     "owner": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
-    "deployer": "0xc4960f4bb9843e7a512e6f38b9acef82b114fdaf",
+    "deployer": "0x95e9e92d82d4d5bc16f4f46a3513185dc7104296",
     "minterAdmin": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
     "admin": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
     "burning_factory_manager": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
@@ -12,5 +12,5 @@
     "pauser": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
     "prohibiter": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
     "burner": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
-    "wiper": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8"
+    "wiper": "0x4d47c8ea920a39b9088dca24e8c25b336f98a066"
 }
