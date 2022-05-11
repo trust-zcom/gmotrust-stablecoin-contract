@@ -1,7 +1,7 @@
 {
     "production": false,
     "name_suffix": " rinkeby",
-    "symbol_suffix": "ZZ",
+    "symbol_suffix": "R",
     "capper": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
     "owner": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
     "deployer": "0xc4960f4bb9843e7a512e6f38b9acef82b114fdaf",
@@ -12,5 +12,8 @@
     "pauser": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
     "prohibiter": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
     "burner": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
-    "wiper": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8"
+    "wiper": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
+    "rescuer": "0x46352bF252F8E150F87a54cC09372B89E538c2Bd",
+    "operator1": "0x46352bF252F8E150F87a54cC09372B89E538c2Bd",
+    "operator2": "0x65734CB8fde301a36e4aE7d9947778341613434E"
 }

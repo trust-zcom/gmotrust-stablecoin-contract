@@ -6,7 +6,7 @@
   "scripts": {
     "test": "truffle test --network test",
     "coverage": "solidity-coverage",
-    "ganache": "ganache-cli -p 7545 -d -a 15 -i 5777"
+    "ganache": "ganache-cli -p 7545 -d -a 25 -i 5777"
   },
   "author": "",
   "license": "ISC",

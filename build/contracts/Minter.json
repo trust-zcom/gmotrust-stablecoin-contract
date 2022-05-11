@@ -79,15 +79,15 @@
       "type": "event"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"minter\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"pauser\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"status\",\"type\":\"bool\"},{\"indexed\":true,\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"Pause\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Minter.sol\":\"Minter\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Common.sol\":{\"keccak256\":\"0x01618465f4d8e87470a0720ff3165174aeb9627b6cef9e384fb8aeff2e72b351\",\"urls\":[\"bzzr://9337ba5a9c196c14611723dd49ec3d284aa6b5d8606041d7de08122e8e177aea\"]},\"/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Minter.sol\":{\"keccak256\":\"0x5fc6ff4d024bafa5c9e647cbf85464cf028c86a571d65ac24525895c76110589\",\"urls\":[\"bzzr://6923aac45a8d303889ee5bc62e2c165e3a30d0a5f5c073c62ce154571b516235\"]},\"/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Pauser.sol\":{\"keccak256\":\"0x76bdff5ae0ede067307cd460dc0859a9bda1ff69c9c115fc72e0cfaf338f1e3f\",\"urls\":[\"bzzr://c0c5591f66d4d781e693b17ade692bda6a316540342db9ab1a3e6c653bae3440\"]}},\"version\":1}",
-  "bytecode": "0x6080604052600080546001600160a81b0319169055600180546001600160a01b031916905534801561003057600080fd5b50610346806100406000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c8063075461721461005c5780633f4ba83a146100805780635c975abb1461008a5780638456cb59146100a65780639fd0506d146100ae575b600080fd5b6100646100b6565b604080516001600160a01b039092168252519081900360200190f35b6100886100c5565b005b6100926101dd565b604080519115158252519081900360200190f35b6100886101ed565b61006461030b565b6001546001600160a01b031681565b6000546001600160a01b031633146101275760408051600160e51b62461bcd02815260206004820152601c60248201527f7468652073656e646572206973206e6f74207468652070617573657200000000604482015290519081900360640190fd5b600054600160a01b900460ff166101885760408051600160e51b62461bcd02815260206004820152601d60248201527f74686973206973206e6f7420612070617573656420636f6e7472616374000000604482015290519081900360640190fd5b60008054600160a01b60ff0219169081905560408051600160a01b90920460ff16151582525133917f5a9dfee0981174e5203ccf9368a8cabb254f9dea6ca43f96b4bbd10c69415d8a919081900360200190a2565b600054600160a01b900460ff1681565b6000546001600160a01b0316331461024f5760408051600160e51b62461bcd02815260206004820152601c60248201527f7468652073656e646572206973206e6f74207468652070617573657200000000604482015290519081900360640190fd5b600054600160a01b900460ff16156102b15760408051600160e51b62461bcd02815260206004820152601960248201527f7468697320697320612070617573656420636f6e747261637400000000000000604482015290519081900360640190fd5b60008054600160a01b60ff021916600160a01b90811791829055604080519190920460ff1615158152905133917f5a9dfee0981174e5203ccf9368a8cabb254f9dea6ca43f96b4bbd10c69415d8a919081900360200190a2565b6000546001600160a01b03168156fea165627a7a7230582028deeb7661248ea205be5dff28fc62bfec452abf69fc290f746dedb8a8837f450029",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c8063075461721461005c5780633f4ba83a146100805780635c975abb1461008a5780638456cb59146100a65780639fd0506d146100ae575b600080fd5b6100646100b6565b604080516001600160a01b039092168252519081900360200190f35b6100886100c5565b005b6100926101dd565b604080519115158252519081900360200190f35b6100886101ed565b61006461030b565b6001546001600160a01b031681565b6000546001600160a01b031633146101275760408051600160e51b62461bcd02815260206004820152601c60248201527f7468652073656e646572206973206e6f74207468652070617573657200000000604482015290519081900360640190fd5b600054600160a01b900460ff166101885760408051600160e51b62461bcd02815260206004820152601d60248201527f74686973206973206e6f7420612070617573656420636f6e7472616374000000604482015290519081900360640190fd5b60008054600160a01b60ff0219169081905560408051600160a01b90920460ff16151582525133917f5a9dfee0981174e5203ccf9368a8cabb254f9dea6ca43f96b4bbd10c69415d8a919081900360200190a2565b600054600160a01b900460ff1681565b6000546001600160a01b0316331461024f5760408051600160e51b62461bcd02815260206004820152601c60248201527f7468652073656e646572206973206e6f74207468652070617573657200000000604482015290519081900360640190fd5b600054600160a01b900460ff16156102b15760408051600160e51b62461bcd02815260206004820152601960248201527f7468697320697320612070617573656420636f6e747261637400000000000000604482015290519081900360640190fd5b60008054600160a01b60ff021916600160a01b90811791829055604080519190920460ff1615158152905133917f5a9dfee0981174e5203ccf9368a8cabb254f9dea6ca43f96b4bbd10c69415d8a919081900360200190a2565b6000546001600160a01b03168156fea165627a7a7230582028deeb7661248ea205be5dff28fc62bfec452abf69fc290f746dedb8a8837f450029",
-  "sourceMap": "48:186:7:-;;;112:1:10;80:34;;-1:-1:-1;;;;;;120:26:10;;;80:34;::7;;-1:-1:-1;;;;;;80:34:7;;;48:186;5:2:-1;;;;30:1;27;20:12;5:2;48:186:7;;;;;;;",
-  "deployedSourceMap": "48:186:7:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;48:186:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;80:34;;;:::i;:::-;;;;-1:-1:-1;;;;;80:34:7;;;;;;;;;;;;;;658:119:10;;;:::i;:::-;;120:26;;;:::i;:::-;;;;;;;;;;;;;;;;;;533:119;;;:::i;80:34::-;;;:::i;::7:-;;;-1:-1:-1;;;;;80:34:7;;:::o;658:119:10:-;262:6;;-1:-1:-1;;;;;262:6:10;248:10;:20;240:61;;;;;-1:-1:-1;;;;;240:61:10;;;;;;;;;;;;;;;;;;;;;;;;;;;;469:6;;-1:-1:-1;;;469:6:10;;;;461:48;;;;;-1:-1:-1;;;;;461:48:10;;;;;;;;;;;;;;;;;;;;;;;;;;;;725:5;716:14;;-1:-1:-1;;;;;;716:14:10;;;;;745:25;;;-1:-1:-1;;;751:6:10;;;716:14;751:6;745:25;;;;;759:10;;745:25;;;;;;;;;;658:119::o;120:26::-;;;-1:-1:-1;;;120:26:10;;;;;:::o;533:119::-;262:6;;-1:-1:-1;;;;;262:6:10;248:10;:20;240:61;;;;;-1:-1:-1;;;;;240:61:10;;;;;;;;;;;;;;;;;;;;;;;;;;;;369:6;;-1:-1:-1;;;369:6:10;;;;368:7;360:45;;;;;-1:-1:-1;;;;;360:45:10;;;;;;;;;;;;;;;;;;;;;;;;;;;;592:6;:13;;-1:-1:-1;;;;;;592:13:10;-1:-1:-1;;;592:13:10;;;;;;;620:25;;;626:6;;;;592:13;626:6;620:25;;;;;;634:10;;620:25;;;;;;;;;;533:119::o;80:34::-;;;-1:-1:-1;;;;;80:34:10;;:::o",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"minter\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"pauser\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"status\",\"type\":\"bool\"},{\"indexed\":true,\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"Pause\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/usr0102794/gyen2022/contracts/contracts/Roles/Minter.sol\":\"Minter\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/usr0102794/gyen2022/contracts/contracts/Roles/Common.sol\":{\"keccak256\":\"0x01618465f4d8e87470a0720ff3165174aeb9627b6cef9e384fb8aeff2e72b351\",\"urls\":[\"bzzr://9337ba5a9c196c14611723dd49ec3d284aa6b5d8606041d7de08122e8e177aea\"]},\"/Users/usr0102794/gyen2022/contracts/contracts/Roles/Minter.sol\":{\"keccak256\":\"0x5fc6ff4d024bafa5c9e647cbf85464cf028c86a571d65ac24525895c76110589\",\"urls\":[\"bzzr://6923aac45a8d303889ee5bc62e2c165e3a30d0a5f5c073c62ce154571b516235\"]},\"/Users/usr0102794/gyen2022/contracts/contracts/Roles/Pauser.sol\":{\"keccak256\":\"0x76bdff5ae0ede067307cd460dc0859a9bda1ff69c9c115fc72e0cfaf338f1e3f\",\"urls\":[\"bzzr://c0c5591f66d4d781e693b17ade692bda6a316540342db9ab1a3e6c653bae3440\"]}},\"version\":1}",
+  "bytecode": "0x6080604052600080546001600160a81b0319169055600180546001600160a01b031916905534801561003057600080fd5b50610346806100406000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c8063075461721461005c5780633f4ba83a146100805780635c975abb1461008a5780638456cb59146100a65780639fd0506d146100ae575b600080fd5b6100646100b6565b604080516001600160a01b039092168252519081900360200190f35b6100886100c5565b005b6100926101dd565b604080519115158252519081900360200190f35b6100886101ed565b61006461030b565b6001546001600160a01b031681565b6000546001600160a01b031633146101275760408051600160e51b62461bcd02815260206004820152601c60248201527f7468652073656e646572206973206e6f74207468652070617573657200000000604482015290519081900360640190fd5b600054600160a01b900460ff166101885760408051600160e51b62461bcd02815260206004820152601d60248201527f74686973206973206e6f7420612070617573656420636f6e7472616374000000604482015290519081900360640190fd5b60008054600160a01b60ff0219169081905560408051600160a01b90920460ff16151582525133917f5a9dfee0981174e5203ccf9368a8cabb254f9dea6ca43f96b4bbd10c69415d8a919081900360200190a2565b600054600160a01b900460ff1681565b6000546001600160a01b0316331461024f5760408051600160e51b62461bcd02815260206004820152601c60248201527f7468652073656e646572206973206e6f74207468652070617573657200000000604482015290519081900360640190fd5b600054600160a01b900460ff16156102b15760408051600160e51b62461bcd02815260206004820152601960248201527f7468697320697320612070617573656420636f6e747261637400000000000000604482015290519081900360640190fd5b60008054600160a01b60ff021916600160a01b90811791829055604080519190920460ff1615158152905133917f5a9dfee0981174e5203ccf9368a8cabb254f9dea6ca43f96b4bbd10c69415d8a919081900360200190a2565b6000546001600160a01b03168156fea165627a7a72305820b642b6539c708165d74c4a42d106d0f8eef392cf68313d6f5a65c9fc9bc757590029",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c8063075461721461005c5780633f4ba83a146100805780635c975abb1461008a5780638456cb59146100a65780639fd0506d146100ae575b600080fd5b6100646100b6565b604080516001600160a01b039092168252519081900360200190f35b6100886100c5565b005b6100926101dd565b604080519115158252519081900360200190f35b6100886101ed565b61006461030b565b6001546001600160a01b031681565b6000546001600160a01b031633146101275760408051600160e51b62461bcd02815260206004820152601c60248201527f7468652073656e646572206973206e6f74207468652070617573657200000000604482015290519081900360640190fd5b600054600160a01b900460ff166101885760408051600160e51b62461bcd02815260206004820152601d60248201527f74686973206973206e6f7420612070617573656420636f6e7472616374000000604482015290519081900360640190fd5b60008054600160a01b60ff0219169081905560408051600160a01b90920460ff16151582525133917f5a9dfee0981174e5203ccf9368a8cabb254f9dea6ca43f96b4bbd10c69415d8a919081900360200190a2565b600054600160a01b900460ff1681565b6000546001600160a01b0316331461024f5760408051600160e51b62461bcd02815260206004820152601c60248201527f7468652073656e646572206973206e6f74207468652070617573657200000000604482015290519081900360640190fd5b600054600160a01b900460ff16156102b15760408051600160e51b62461bcd02815260206004820152601960248201527f7468697320697320612070617573656420636f6e747261637400000000000000604482015290519081900360640190fd5b60008054600160a01b60ff021916600160a01b90811791829055604080519190920460ff1615158152905133917f5a9dfee0981174e5203ccf9368a8cabb254f9dea6ca43f96b4bbd10c69415d8a919081900360200190a2565b6000546001600160a01b03168156fea165627a7a72305820b642b6539c708165d74c4a42d106d0f8eef392cf68313d6f5a65c9fc9bc757590029",
+  "sourceMap": "48:186:7:-;;;112:1:11;80:34;;-1:-1:-1;;;;;;120:26:11;;;80:34;::7;;-1:-1:-1;;;;;;80:34:7;;;48:186;5:2:-1;;;;30:1;27;20:12;5:2;48:186:7;;;;;;;",
+  "deployedSourceMap": "48:186:7:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;48:186:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;80:34;;;:::i;:::-;;;;-1:-1:-1;;;;;80:34:7;;;;;;;;;;;;;;658:119:11;;;:::i;:::-;;120:26;;;:::i;:::-;;;;;;;;;;;;;;;;;;533:119;;;:::i;80:34::-;;;:::i;::7:-;;;-1:-1:-1;;;;;80:34:7;;:::o;658:119:11:-;262:6;;-1:-1:-1;;;;;262:6:11;248:10;:20;240:61;;;;;-1:-1:-1;;;;;240:61:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;469:6;;-1:-1:-1;;;469:6:11;;;;461:48;;;;;-1:-1:-1;;;;;461:48:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;725:5;716:14;;-1:-1:-1;;;;;;716:14:11;;;;;745:25;;;-1:-1:-1;;;751:6:11;;;716:14;751:6;745:25;;;;;759:10;;745:25;;;;;;;;;;658:119::o;120:26::-;;;-1:-1:-1;;;120:26:11;;;;;:::o;533:119::-;262:6;;-1:-1:-1;;;;;262:6:11;248:10;:20;240:61;;;;;-1:-1:-1;;;;;240:61:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;369:6;;-1:-1:-1;;;369:6:11;;;;368:7;360:45;;;;;-1:-1:-1;;;;;360:45:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;592:6;:13;;-1:-1:-1;;;;;;592:13:11;-1:-1:-1;;;592:13:11;;;;;;;620:25;;;626:6;;;;592:13;626:6;620:25;;;;;;634:10;;620:25;;;;;;;;;;533:119::o;80:34::-;;;-1:-1:-1;;;;;80:34:11;;:::o",
   "source": "pragma solidity 0.5.8;\n\nimport \"./Pauser.sol\";\n\ncontract Minter is Pauser {\n    address public minter = address(0);\n\n    modifier onlyMinter() {\n        require(msg.sender == minter, \"the sender is not the minter\");\n        _;\n    }\n}",
-  "sourcePath": "/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Minter.sol",
+  "sourcePath": "/Users/usr0102794/gyen2022/contracts/contracts/Roles/Minter.sol",
   "ast": {
-    "absolutePath": "/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Minter.sol",
+    "absolutePath": "/Users/usr0102794/gyen2022/contracts/contracts/Roles/Minter.sol",
     "exportedSymbols": {
       "Minter": [
         538
@@ -107,12 +107,12 @@
         "src": "0:22:7"
       },
       {
-        "absolutePath": "/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Pauser.sol",
+        "absolutePath": "/Users/usr0102794/gyen2022/contracts/contracts/Roles/Pauser.sol",
         "file": "./Pauser.sol",
         "id": 518,
         "nodeType": "ImportDirective",
         "scope": 539,
-        "sourceUnit": 817,
+        "sourceUnit": 890,
         "src": "24:22:7",
         "symbolAliases": [],
         "unitAlias": ""
@@ -126,10 +126,10 @@
               "id": 519,
               "name": "Pauser",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 816,
+              "referencedDeclaration": 889,
               "src": "67:6:7",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Pauser_$816",
+                "typeIdentifier": "t_contract$_Pauser_$889",
                 "typeString": "contract Pauser"
               }
             },
@@ -140,7 +140,7 @@
         ],
         "contractDependencies": [
           515,
-          816
+          889
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -148,7 +148,7 @@
         "id": 538,
         "linearizedBaseContracts": [
           538,
-          816,
+          889,
           515
         ],
         "name": "Minter",
@@ -265,7 +265,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2423,
+                            "referencedDeclaration": 3220,
                             "src": "161:3:7",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -341,10 +341,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2426,
-                        2427
+                        3223,
+                        3224
                       ],
-                      "referencedDeclaration": 2427,
+                      "referencedDeclaration": 3224,
                       "src": "153:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -397,7 +397,7 @@
     "src": "0:234:7"
   },
   "legacyAST": {
-    "absolutePath": "/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Minter.sol",
+    "absolutePath": "/Users/usr0102794/gyen2022/contracts/contracts/Roles/Minter.sol",
     "exportedSymbols": {
       "Minter": [
         538
@@ -417,12 +417,12 @@
         "src": "0:22:7"
       },
       {
-        "absolutePath": "/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Pauser.sol",
+        "absolutePath": "/Users/usr0102794/gyen2022/contracts/contracts/Roles/Pauser.sol",
         "file": "./Pauser.sol",
         "id": 518,
         "nodeType": "ImportDirective",
         "scope": 539,
-        "sourceUnit": 817,
+        "sourceUnit": 890,
         "src": "24:22:7",
         "symbolAliases": [],
         "unitAlias": ""
@@ -436,10 +436,10 @@
               "id": 519,
               "name": "Pauser",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 816,
+              "referencedDeclaration": 889,
               "src": "67:6:7",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Pauser_$816",
+                "typeIdentifier": "t_contract$_Pauser_$889",
                 "typeString": "contract Pauser"
               }
             },
@@ -450,7 +450,7 @@
         ],
         "contractDependencies": [
           515,
-          816
+          889
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -458,7 +458,7 @@
         "id": 538,
         "linearizedBaseContracts": [
           538,
-          816,
+          889,
           515
         ],
         "name": "Minter",
@@ -575,7 +575,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2423,
+                            "referencedDeclaration": 3220,
                             "src": "161:3:7",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -651,10 +651,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2426,
-                        2427
+                        3223,
+                        3224
                       ],
-                      "referencedDeclaration": 2427,
+                      "referencedDeclaration": 3224,
                       "src": "153:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -712,7 +712,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.16",
-  "updatedAt": "2020-12-22T08:26:55.758Z",
+  "updatedAt": "2022-04-06T02:00:17.482Z",
   "devdoc": {
     "methods": {}
   },

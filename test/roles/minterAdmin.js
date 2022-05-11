@@ -1,8 +1,9 @@
 
-//modified 2020/08/24 start
-//const Token = artifacts.require("Token_v1");
-const Token = artifacts.require("Token_v2");
-//modified 2020/08/24 end;
+//modified 2022/04/05 start
+// const Token = artifacts.require("Token_v1");
+// const Token = artifacts.require("Token_v2");
+const Token = artifacts.require("Token_v3");
+//modified 2020/04/05 end;
 const truffleAssert = require('truffle-assertions');
 
 contract("MinterAdmin.sol", (accounts) => {

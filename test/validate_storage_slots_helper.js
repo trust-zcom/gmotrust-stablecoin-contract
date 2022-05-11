@@ -2,14 +2,18 @@ const BN = require("bn.js");
 
 const Token_V1 = artifacts.require("Token_v1");
 const Token_V2 = artifacts.require("Token_v2");
+const Token_V3 = artifacts.require("Token_v3");
 
 const truffleAssert = require('truffle-assertions');
 const Web3EthAbi = require('web3-eth-abi');
 
 const abiv1 = require("../build/contracts/Token_v1.json").abi;
 const abiv2 = require("../build/contracts/Token_v2.json").abi;
+const abiv3 = require("../build/contracts/Token_v3.json").abi;
+
 const [initializeAbi] = abiv1.filter((f) => f.name === 'initialize');
 const [initializeWiperAbi] = abiv2.filter((f) => f.name === 'initializeWiper');
+const [initializeV3] = abiv3.filter((f) => f.name === 'initializeV3');
 
 const adminSlot =
   "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103";
@@ -38,9 +42,13 @@ function validateStorageSlots(
       let proxyAdmin = accounts[7];
       let wiper = accounts[8];
       let alice = accounts[9];
-      let bob = accounts[10]; 
+      let bob = accounts[10];
       let charlie = accounts[11];
-      let newProxyAdmin = accounts[12]; 
+      let newProxyAdminV2 = accounts[12];
+      let newProxyAdminV3 = accounts[13];
+      let rescuer = accounts[14];
+      let operator1 = accounts[15];
+      let operator2 = accounts[16];
 
 
       const [name, symbol, decimals] = ["GMO stable coin", "SYMBOL", 6];
@@ -69,23 +77,37 @@ function validateStorageSlots(
         await gyenInstance.pause({ from: pauser });
 
         if (version > 1) {
-
             tokenInstance = await Token_V2.new();
             let datav2 = Web3EthAbi.encodeFunctionCall(initializeWiperAbi,[wiper]);
-            // upgrade 
+            // upgrade to v2
             await gyenProxy.upgradeToAndCall(tokenInstance.address, datav2, { from: proxyAdmin });
             // change deplooyer
-            await gyenProxy.changeAdmin(newProxyAdmin, { from: proxyAdmin });
+            await gyenProxy.changeAdmin(newProxyAdminV2, { from: proxyAdmin });
+        }
 
+        if (version == 3) {
+          // actions in V2
+          gyenInstance = await Token_V2.at(gyenProxy.address);
+          await gyenInstance.unpause({ from: pauser });
+          await gyenInstance.mint(alice, minted, { from: minter });
+          await gyenInstance.transfer(bob, transferred, { from: alice });
+          await gyenInstance.pause({ from: pauser });
+
+          tokenInstance = await Token_V3.new();
+          let datav3 = Web3EthAbi.encodeFunctionCall(initializeV3,[rescuer, operator1, operator2]);
+          // upgrade to v3
+          await gyenProxy.upgradeToAndCall(tokenInstance.address, datav3, { from: newProxyAdminV2 });
+          // change deplooyer
+          await gyenProxy.changeAdmin(newProxyAdminV3, { from: newProxyAdminV2 });
         }
 
       });
 
-      it("retains original storage slots 0 through 65", async () => {
+      it("retains original storage slots 0 through 68", async () => {
 
 
         let slots = [];
-        for (let i = 0; i < 66; i++) {
+        for (let i = 0; i < 69; i++) {
           slots[i] = await readSlot(gyenProxy.address, i);
         }
   
@@ -99,91 +121,118 @@ function validateStorageSlots(
         }
         */
 
-      // slot 51 - mapping (address => uint256) private _balances;
-      expect(slots[51]).to.equal("0");
+        // slot 51 - mapping (address => uint256) private _balances;
+        expect(slots[51]).to.equal("0");
 
-      // slot 52 - mapping (address => mapping (address => uint256)) private _allowances;
-      expect(slots[52]).to.equal("0");
+        // slot 52 - mapping (address => mapping (address => uint256)) private _allowances;
+        expect(slots[52]).to.equal("0");
 
-      // slot 53 - uint256 private _totalSupply
-      expect(parseUint(slots[53]).toNumber()).to.equal(minted);
+        // slot 53 - uint256 private _totalSupply
+        if (version < 3) {
+          expect(parseUint(slots[53]).toNumber()).to.equal(minted);
+        } else {
+          expect(parseUint(slots[53]).toNumber()).to.equal(2 * minted);
+        }
 
-      // slot 54 - capicity
-      expect(parseUint(slots[54]).toNumber()).to.equal(capped);  
-      
-      // slot 55 - capper 
-      expect(parseAddress(slots[55])).to.equal(capper);
+        // slot 54 - capicity
+        expect(parseUint(slots[54]).toNumber()).to.equal(capped);  
+        
+        // slot 55 - capper 
+        expect(parseAddress(slots[55])).to.equal(capper);
 
-      // slot 56 - pauser, paused
-      // values are lower-order aligned
-      expect(parseInt(slots[56].slice(0, 2), 16)).to.equal(1); // paused
-      expect(parseAddress(slots[56].slice(2))).to.equal(pauser); // pause
-      
-      // slot 57 - prohibiter 
-      expect(parseAddress(slots[57])).to.equal(prohibiter); 
-            
-      // slot 58 - mapping(address => bool) public prohibiteds
-      expect(slots[58]).to.equal("0");
+        // slot 56 - pauser, paused
+        // values are lower-order aligned
+        expect(parseInt(slots[56].slice(0, 2), 16)).to.equal(1); // paused
+        expect(parseAddress(slots[56].slice(2))).to.equal(pauser); // pause
+        
+        // slot 57 - prohibiter 
+        expect(parseAddress(slots[57])).to.equal(prohibiter); 
 
-      // slot 59 - admin 
-      expect(parseAddress(slots[59])).to.equal(admin);       
+        // slot 58 - mapping(address => bool) public prohibiteds
+        expect(slots[58]).to.equal("0");
 
-      // slot 60 - minter 
-      expect(parseAddress(slots[60])).to.equal(minter); 
+        // slot 59 - admin 
+        expect(parseAddress(slots[59])).to.equal(admin);       
 
-      // slot 61 - minterAdmin 
-      expect(parseAddress(slots[61])).to.equal(minterAdmin);
-      
-      // slot 62 - owner 
-      expect(parseAddress(slots[62])).to.equal(owner);       
+        // slot 60 - minter 
+        expect(parseAddress(slots[60])).to.equal(minter); 
 
-      // slot 63 - name
-      expect(parseString(slots[63])).to.equal(name);
+        // slot 61 - minterAdmin 
+        expect(parseAddress(slots[61])).to.equal(minterAdmin);
+        
+        // slot 62 - owner 
+        expect(parseAddress(slots[62])).to.equal(owner);       
 
-      // slot 64 - symbol
-      expect(parseString(slots[64])).to.equal(symbol);
+        // slot 63 - name
+        expect(parseString(slots[63])).to.equal(name);
 
-      
-      if (version > 1) {
+        // slot 64 - symbol
+        expect(parseString(slots[64])).to.equal(symbol);
 
-        // slot 65 - decimals, wiper
-        expect(parseUint(slots[65].slice(-2)).toNumber()).to.equal(decimals);
-        expect(parseAddress(slots[65].slice(0,-2))).to.equal(wiper); 
-        //console.log("wiper: ", slots[65].slice(0,-2));      
-      }else if(version == 1){
-        // slot 65 - decimals
-        expect(parseUint(slots[65]).toNumber()).to.equal(decimals);
-      }
+        if(version == 1){
+          // slot 65 - decimals
+          expect(parseUint(slots[65]).toNumber()).to.equal(decimals);
+        } else {
 
-      // proxy admin
-      let deployer = await readSlot(gyenProxy.address, adminSlot);
-      if (version > 1) {
-        expect(deployer).to.equal(newProxyAdmin.toLowerCase().slice(2));
-      }else if(version == 1){
-        expect(deployer).to.equal(proxyAdmin.toLowerCase().slice(2));
-      }
-      
-      // implementation
-      let implementation = await readSlot(gyenProxy.address, implSlot);
-    
-      expect(implementation).to.equal(tokenInstance.address.toLowerCase().slice(2));
+          // slot 65 - decimals, wiper
+          expect(parseUint(slots[65].slice(-2)).toNumber()).to.equal(decimals);
+          expect(parseAddress(slots[65].slice(0,-2))).to.equal(wiper);
+          //console.log("wiper: ", slots[65].slice(0,-2));
+        }
+
+        if (version == 3) {
+          expect(parseAddress(slots[66])).to.equal(rescuer);
+          expect(parseAddress(slots[67])).to.equal(operator1);
+          expect(parseAddress(slots[68])).to.equal(operator2);
+        }
+
+        // proxy admin
+        let deployer = await readSlot(gyenProxy.address, adminSlot);
+        if(version == 1){
+          expect(deployer).to.equal(proxyAdmin.toLowerCase().slice(2));
+        } else if (version == 2) {
+          expect(deployer).to.equal(newProxyAdminV2.toLowerCase().slice(2));
+        } else if(version == 3) {
+          expect(deployer).to.equal(newProxyAdminV3.toLowerCase().slice(2));
+        }
+
+        // implementation
+        let implementation = await readSlot(gyenProxy.address, implSlot);
+
+        expect(implementation).to.equal(tokenInstance.address.toLowerCase().slice(2));
       });
   
       // slot 51 - mapping (address => uint256) private _balances; 
       it("retains original storage slots for balances mapping", async () => {
-        // balance[alice]
-        let v = parseInt(
-          await readSlot(gyenProxy.address, addressMappingSlot(alice, 51)),
-          16
-        );
-        expect(v).to.equal(minted - transferred);
-  
-        // balances[bob]
-        v = parseInt(
-          await readSlot(gyenProxy.address, addressMappingSlot(bob, 51)),
-          16
-        );
-        expect(v).to.equal(transferred);
+        if(version < 3) {
+          // balance[alice]
+          let v = parseInt(
+            await readSlot(gyenProxy.address, addressMappingSlot(alice, 51)),
+            16
+          );
+          expect(v).to.equal(minted - transferred);
+    
+          // balances[bob]
+          v = parseInt(
+            await readSlot(gyenProxy.address, addressMappingSlot(bob, 51)),
+            16
+          );
+          expect(v).to.equal(transferred);
+        } else {
+          // balance[alice]
+          let v = parseInt(
+            await readSlot(gyenProxy.address, addressMappingSlot(alice, 51)),
+            16
+          );
+          expect(v).to.equal(2 * minted - 2 * transferred);
+    
+          // balances[bob]
+          v = parseInt(
+            await readSlot(gyenProxy.address, addressMappingSlot(bob, 51)),
+            16
+          );
+          expect(v).to.equal(2 * transferred);
+        }
       });
   
       // slot 52 - mapping (address => mapping (address => uint256)) private _allowances; 

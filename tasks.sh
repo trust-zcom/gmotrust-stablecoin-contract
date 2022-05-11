@@ -17,7 +17,10 @@ if [[ $# != 2 ]]; then
     echo "             1 -> deploy Token_v2"
     echo "             2 -> upgrade to V2 and change deployer"
     echo "             3 -> validate V1 states of GYEN and ZUSD"
-    echo "             4 -> validate V2 states of GYEN and ZUSD" 
+    echo "             4 -> validate V2 states of GYEN and ZUSD"
+    echo "             5 -> deploy Token_v3"
+    echo "             6 -> upgrade to V3 and initialize V3"
+    echo "             7 -> validate V3 states of GYEN and ZUSD"
     exit
 fi
 
@@ -42,7 +45,22 @@ case $2 in
         npx truffle exec ./validate_contract.js 2 --network $1
         ;;
 
+    5)
+        # use old deployer or other account
+        npx truffle migrate --network $1  --f 8 --to 8
+        ;;
+
+    6)
+        # must use old deployer
+        npx truffle migrate --network $1  --f 9 --to 9
+        ;;
+
+    7)
+        # must not use old deployer
+        npx truffle exec ./validate_contract.js 3 --network $1
+        ;;
+
     *)
         echo "./tasks.sh $1 {action}"
-        echo "  action parameter error. Only 1, 2, 3, 4 are permitted."
+        echo "  action parameter error. Only 1, 2, 3, 4, 5, 6, 7 are permitted."
 esac

@@ -1,9 +1,10 @@
 const BurningFactory = artifacts.require("BurningFactory");
 const Burning = artifacts.require("Burning");
-//modified 2020/08/24 start
+//modified 2022/04/05 start
 //const Token = artifacts.require("Token_v1");
-const Token = artifacts.require("Token_v2");
-//modified 2020/08/24
+//const Token = artifacts.require("Token_v2");
+const Token = artifacts.require("Token_v3");
+//modified 2022/04/05 start
 const truffleAssert = require('truffle-assertions');
 
 contract("Burning.sol", (accounts) => {
@@ -13,12 +14,16 @@ contract("Burning.sol", (accounts) => {
   let tokenOwner = accounts[1];
   let manager = accounts[2];
   let burner = accounts[3];
+  let operator1 = accounts[9];
+  let operator2 = accounts[10];
   let zero_address = '0x0000000000000000000000000000000000000000'
   
   var initialize =  async () => {
     burningFactoryInstance = await BurningFactory.new(manager, burner, {from: burningFactoryOwner});
     tokenInstance = await Token.new();
     await tokenInstance.initialize('A', 'a', 1, tokenOwner, tokenOwner, tokenOwner, tokenOwner, tokenOwner, tokenOwner, tokenOwner);
+    await tokenInstance.initializeWiper(tokenOwner);
+    await tokenInstance.initializeV3(tokenOwner, operator1, operator2);
   }
 
   describe('Test burn function', function() {
@@ -30,6 +35,10 @@ contract("Burning.sol", (accounts) => {
       let burning_instance = await Burning.at(burning_address);
       await tokenInstance.cap(100, {from: tokenOwner});
       await tokenInstance.mint(burning_address, 10, {from: tokenOwner});
+      const mintTransactionCount = await tokenInstance.mintTransactionCount();
+      const transactionId = mintTransactionCount.toNumber() - 1;
+      await tokenInstance.confirmMintTransaction(transactionId, {from: operator1});
+      await tokenInstance.confirmMintTransaction(transactionId, {from: operator2});
       await burning_instance.burn(tokenInstance.address, 9, {from: burner});
       let balance = await tokenInstance.balanceOf(burning_address);
       assert.strictEqual(balance.toNumber(), 1, "Balance after burn not correct!");
@@ -42,6 +51,10 @@ contract("Burning.sol", (accounts) => {
       let burning_instance = await Burning.at(burning_address);
       await tokenInstance.cap(100, {from: tokenOwner});
       await tokenInstance.mint(burning_address, 10, {from: tokenOwner});
+      const mintTransactionCount = await tokenInstance.mintTransactionCount();
+      const transactionId = mintTransactionCount.toNumber() - 1;
+      await tokenInstance.confirmMintTransaction(transactionId, {from: operator1});
+      await tokenInstance.confirmMintTransaction(transactionId, {from: operator2});
       await truffleAssert.reverts(
         burning_instance.burn(tokenInstance.address, 9, {from: non_burner}),
         truffleAssert.ErrorType.REVERT,
@@ -59,7 +72,10 @@ contract("Burning.sol", (accounts) => {
       let burning_instance = await Burning.at(burning_address);
       await tokenInstance.cap(100, {from: tokenOwner});
       await tokenInstance.mint(burning_address, 10, {from: tokenOwner});
-
+      const mintTransactionCount = await tokenInstance.mintTransactionCount();
+      const transactionId = mintTransactionCount.toNumber() - 1;
+      await tokenInstance.confirmMintTransaction(transactionId, {from: operator1});
+      await tokenInstance.confirmMintTransaction(transactionId, {from: operator2});
       let recipient = `0x${require('crypto').randomBytes(20).toString('hex')}`
       await burning_instance.transfer(tokenInstance.address, recipient, 9, {from: burner});
       let balance = await tokenInstance.balanceOf(burning_address);
@@ -75,7 +91,10 @@ contract("Burning.sol", (accounts) => {
       let burning_instance = await Burning.at(burning_address);
       await tokenInstance.cap(100, {from: tokenOwner});
       await tokenInstance.mint(burning_address, 10, {from: tokenOwner});
-
+      const mintTransactionCount = await tokenInstance.mintTransactionCount();
+      const transactionId = mintTransactionCount.toNumber() - 1;
+      await tokenInstance.confirmMintTransaction(transactionId, {from: operator1});
+      await tokenInstance.confirmMintTransaction(transactionId, {from: operator2});
       let recipient = `0x${require('crypto').randomBytes(20).toString('hex')}`
       await truffleAssert.reverts(
         burning_instance.transfer(tokenInstance.address, recipient, 9, {from: non_burner}),
@@ -90,7 +109,10 @@ contract("Burning.sol", (accounts) => {
       let burning_instance = await Burning.at(burning_address);
       await tokenInstance.cap(100, {from: tokenOwner});
       await tokenInstance.mint(burning_address, 10, {from: tokenOwner});
-
+      const mintTransactionCount = await tokenInstance.mintTransactionCount();
+      const transactionId = mintTransactionCount.toNumber() - 1;
+      await tokenInstance.confirmMintTransaction(transactionId, {from: operator1});
+      await tokenInstance.confirmMintTransaction(transactionId, {from: operator2});
       let recipient = `0x${require('crypto').randomBytes(20).toString('hex')}`
 
       await tokenInstance.prohibit(burning_address, {from: tokenOwner});
@@ -107,7 +129,10 @@ contract("Burning.sol", (accounts) => {
       let burning_instance = await Burning.at(burning_address);
       await tokenInstance.cap(100, {from: tokenOwner});
       await tokenInstance.mint(burning_address, 10, {from: tokenOwner});
-
+      const mintTransactionCount = await tokenInstance.mintTransactionCount();
+      const transactionId = mintTransactionCount.toNumber() - 1;
+      await tokenInstance.confirmMintTransaction(transactionId, {from: operator1});
+      await tokenInstance.confirmMintTransaction(transactionId, {from: operator2});
       let recipient = `0x${require('crypto').randomBytes(20).toString('hex')}`
 
       await tokenInstance.pause({from: tokenOwner});
@@ -124,7 +149,10 @@ contract("Burning.sol", (accounts) => {
       let burning_instance = await Burning.at(burning_address);
       await tokenInstance.cap(100, {from: tokenOwner});
       await tokenInstance.mint(burning_address, 10, {from: tokenOwner});
-
+      const mintTransactionCount = await tokenInstance.mintTransactionCount();
+      const transactionId = mintTransactionCount.toNumber() - 1;
+      await tokenInstance.confirmMintTransaction(transactionId, {from: operator1});
+      await tokenInstance.confirmMintTransaction(transactionId, {from: operator2});
       await tokenInstance.pause({from: tokenOwner});
       await truffleAssert.reverts(
         burning_instance.transfer(tokenInstance.address, zero_address, 9, {from: burner}),
@@ -139,7 +167,10 @@ contract("Burning.sol", (accounts) => {
       let burning_instance = await Burning.at(burning_address);
       await tokenInstance.cap(100, {from: tokenOwner});
       await tokenInstance.mint(burning_address, 10, {from: tokenOwner});
-
+      const mintTransactionCount = await tokenInstance.mintTransactionCount();
+      const transactionId = mintTransactionCount.toNumber() - 1;
+      await tokenInstance.confirmMintTransaction(transactionId, {from: operator1});
+      await tokenInstance.confirmMintTransaction(transactionId, {from: operator2});
       let recipient = `0x${require('crypto').randomBytes(20).toString('hex')}`
 
       await tokenInstance.pause({from: tokenOwner});
