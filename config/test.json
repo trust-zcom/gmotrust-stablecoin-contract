@@ -11,5 +11,9 @@
     "minter": "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1",
     "pauser": "0xf115598a3082996e8063537c94f7b740b1f97d6c",
     "prohibiter": "0x9859e439f3ecacb04e6a02b60395f21a3dd71d58",
-    "burner": "0x5a2031c29ae359caae4a0e0e3daf86ccc6e03773"
+    "burner": "0x5a2031c29ae359caae4a0e0e3daf86ccc6e03773",
+    "wiper": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
+    "rescuer": "0x46352bF252F8E150F87a54cC09372B89E538c2Bd",
+    "operator1": "0x46352bF252F8E150F87a54cC09372B89E538c2Bd",
+    "operator2": "0x65734CB8fde301a36e4aE7d9947778341613434E"
 }

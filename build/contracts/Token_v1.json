@@ -9890,8 +9890,8 @@
         }
       },
       "links": {},
-      "address": "0xE8dC4B691BF88F98D22080DA6035a52268ac3815",
-      "transactionHash": "0x30073be51d863a0a239e11b066ecc8cd1f8bd37f97e2b378bcc38952d969d97e"
+      "address": "0x0f408b4C454F41F655880DE29cE96A7f75b531D7",
+      "transactionHash": "0x5cd8da59ff17952e4a015cf2a5f3dce782866cfeac99950cbbd4a0953aa28274"
     },
     "42": {
       "events": {
@@ -10533,7 +10533,7 @@
     }
   },
   "schemaVersion": "3.0.16",
-  "updatedAt": "2022-04-06T04:20:35.592Z",
+  "updatedAt": "2022-06-08T03:20:14.752Z",
   "devdoc": {
     "methods": {
       "allowance(address,address)": {
