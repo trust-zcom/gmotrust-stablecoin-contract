@@ -331,6 +331,16 @@ contract("ZUSD.sol", (accounts) => {
         'This should be a fail test case!'
       );
     })
+
+    it("cannot mint to prohibited address", async () => {
+      let mint_address = accounts[11];
+      await zusdInstance.prohibit(mint_address, {from: prohibiter});
+      await truffleAssert.reverts(
+        zusdInstance.mint(mint_address, 10, {from: minter}),
+        truffleAssert.ErrorType.REVERT,
+        'This should be a fail test case!'
+      );
+    })
   });
 
   describe('Test transfer function', function() {
@@ -362,6 +372,22 @@ contract("ZUSD.sol", (accounts) => {
       await zusdInstance.prohibit(prohibited_sender, {from: prohibiter});
       await truffleAssert.reverts(
         zusdInstance.transfer(recipient, 10, {from: prohibited_sender}),
+        truffleAssert.ErrorType.REVERT,
+        'This should be a fail test case!'
+      );
+    });
+
+    it("prohibited recipient account cannot receive", async () => {
+      let sender = accounts[11];
+      let recipient = accounts[12];
+      await zusdInstance.mint(sender, 10, {from: minter});
+      const mintTransactionCount = await zusdInstance.mintTransactionCount();
+      const transactionId = mintTransactionCount.toNumber() - 1;
+      await zusdInstance.confirmMintTransaction(transactionId, {from: operator1});
+      await zusdInstance.confirmMintTransaction(transactionId, {from: operator2});
+      await zusdInstance.prohibit(recipient, {from: prohibiter});
+      await truffleAssert.reverts(
+        zusdInstance.transfer(recipient, 10, {from: sender}),
         truffleAssert.ErrorType.REVERT,
         'This should be a fail test case!'
       );
@@ -476,6 +502,24 @@ contract("ZUSD.sol", (accounts) => {
       await zusdInstance.prohibit(prohibited_sender, {from: prohibiter});
       await truffleAssert.reverts(
         zusdInstance.transferFrom(prohibited_sender, recipient, 10, {from: spender}),
+        truffleAssert.ErrorType.REVERT,
+        'This should be a fail test case!'
+      );
+    });
+
+    it("prohibited recipient cannot receive", async () => {
+      let sender = accounts[11];
+      let recipient = accounts[12];
+      let spender = accounts[13];
+      await zusdInstance.mint(sender, 10, {from: minter});
+      const mintTransactionCount = await zusdInstance.mintTransactionCount();
+      const transactionId = mintTransactionCount.toNumber() - 1;
+      await zusdInstance.confirmMintTransaction(transactionId, {from: operator1});
+      await zusdInstance.confirmMintTransaction(transactionId, {from: operator2});
+      await zusdInstance.approve(spender, 10, {from: sender});
+      await zusdInstance.prohibit(recipient, {from: prohibiter});
+      await truffleAssert.reverts(
+        zusdInstance.transferFrom(sender, recipient, 10, {from: spender}),
         truffleAssert.ErrorType.REVERT,
         'This should be a fail test case!'
       );
@@ -654,6 +698,21 @@ contract("ZUSD.sol", (accounts) => {
       await zusdInstance.confirmMintTransaction(transactionId, {from: operator2});
       await truffleAssert.reverts(
         zusdInstance.burn(0, {from: burn_account}),
+        truffleAssert.ErrorType.REVERT,
+        'This should be a fail test case!'
+      );
+    });
+
+    it("prohibited account cannot burn", async () => {
+      let burn_account = accounts[11];
+      await zusdInstance.mint(burn_account, 10, {from: minter});
+      const mintTransactionCount = await zusdInstance.mintTransactionCount();
+      const transactionId = mintTransactionCount.toNumber() - 1;
+      await zusdInstance.confirmMintTransaction(transactionId, {from: operator1});
+      await zusdInstance.confirmMintTransaction(transactionId, {from: operator2});
+      await zusdInstance.prohibit(burn_account, {from: prohibiter});
+      await truffleAssert.reverts(
+        zusdInstance.burn(10, {from: burn_account}),
         truffleAssert.ErrorType.REVERT,
         'This should be a fail test case!'
       );

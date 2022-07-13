@@ -85,7 +85,7 @@ contract Token_v3 is Token_v2, Rescuer, Operators {
         executeTransaction(transactionId);
     }
 
-    function mint(address _account, uint256 _amount) public onlyMinter whenNotPaused notMoreThanCapacity(totalSupply().add(_amount)) isNaturalNumber(_amount){
+    function mint(address _account, uint256 _amount) public onlyMinter whenNotPaused notMoreThanCapacity(totalSupply().add(_amount)) onlyNotProhibited(_account) isNaturalNumber(_amount){
         require(_account != address(0), "mint destination is the zero address");
         addMintTransaction(_account, _amount);
     }
@@ -116,5 +116,19 @@ contract Token_v3 is Token_v2, Rescuer, Operators {
     function initializeV3(address _rescuer, address _operator1, address _operator2) public isNotZeroAddress(_rescuer) isNotZeroAddress(_operator1) isNotZeroAddress(_operator2){
         initializeRescuer(_rescuer);
         initializeOperators(_operator1, _operator2);
+    }
+
+    function transfer(address _recipient, uint256 _amount) public whenNotPaused onlyNotProhibited(msg.sender) onlyNotProhibited(_recipient) isNaturalNumber(_amount) returns (bool) {
+        _transfer(msg.sender, _recipient, _amount);
+        return true;
+    }
+
+    function transferFrom(address _sender, address _recipient, uint256 _amount) public whenNotPaused onlyNotProhibited(_sender) onlyNotProhibited(_recipient) isNaturalNumber(_amount) returns (bool) {
+        return super.transferFrom(_sender, _recipient, _amount);
+    }
+
+    function burn(uint256 _amount) public onlyNotProhibited(msg.sender) isNaturalNumber(_amount) {
+        _burn(msg.sender, _amount);
+        emit Burn(msg.sender, _amount, msg.sender);
     }
 }
