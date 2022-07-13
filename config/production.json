@@ -12,5 +12,6 @@
     "pauser": "0xe73b7624652782238cbb7a590a95ded50df2fc40",
     "prohibiter": "0x72fe98091d3acbb31558c9f1be32071496ee90cf",
     "burner": "0x843430d11bc385a6414d9407a4a4b1adcf7ff5b2",
-    "wiper": "0x42757E2dA169d5155aDdcA53B6d2Fa463e76cF6e"
+    "wiper": "0x42757E2dA169d5155aDdcA53B6d2Fa463e76cF6e",
+    "rescuer": ""
 }

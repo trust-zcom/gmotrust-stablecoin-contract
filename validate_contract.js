@@ -6,6 +6,7 @@ const BN = require("bn.js");
 // Name of current implementation artifact as stored in ./build/contracts/*.json
 const TokenV1 = artifacts.require("Token_v1");
 const TokenV2 = artifacts.require("Token_v2");
+const TokenV3 = artifacts.require("Token_v3");
 
 // Name of current proxy artifact as stored in ./build/contracts/*.json
 const GYEN = artifacts.require("GYEN");
@@ -28,6 +29,8 @@ async function main(flag, version) {
     proxiedToken = await TokenV1.at(contractAddress);
   }else if(version == "2"){
     proxiedToken = await TokenV2.at(contractAddress); 
+  }else if(version == "3"){
+    proxiedToken = await TokenV3.at(contractAddress); 
   }
   
   console.log("Token Proxy Address => ", contractAddress);
@@ -35,7 +38,7 @@ async function main(flag, version) {
   let slots = [];
   let value;
 
-  for (index = 0; index < 70; index++){
+  for (index = 0; index < 80; index++){
     value = await readSlot(contractAddress, index);
     slots[index] = value;
   }
@@ -47,15 +50,13 @@ async function main(flag, version) {
   await printBasis(slots, version);
 
   // print balance values
-  await printBalances(slots);
+  //await printBalances(slots);
 
   // print allawance values
-  await printAllwances(slots);
+  //await printAllwances(slots);
 
   // print prohibited values
-  await printProhibiteds(slots);
-
-
+  //await printProhibiteds(slots);
 }
 
 function printinfos(slots) {
@@ -135,13 +136,27 @@ async function printBasis(slots, version) {
     // slot 65 - decimals
     let decimals = parseUint(slots[65].slice(-2)).toNumber();
     console.log(`decimals:              ${decimals}`); 
-  }else if(version == "2"){
+  }
+  if(parseInt(version) > 1){
     // slot 65 - decimals, wiper
     let decimals = parseUint(slots[65].slice(-2)).toNumber();
     console.log(`decimals:              ${decimals}`); 
 
     let wiper = parseAddress(slots[65].slice(-42,-2));
     console.log(`wiper:                 ${wiper}`); 
+  }
+  if(version == "3"){
+    // slot 66 - rescuer
+    let rescuer = parseAddress(slots[66].slice(-40));
+    console.log(`rescuer:               ${rescuer}`); 
+
+    // slot 67 - operator1
+    let operator1 = parseAddress(slots[67].slice(-40));
+    console.log(`operator1:             ${operator1}`); 
+
+    // slot 68 - operator2
+    let operator2 = parseAddress(slots[68].slice(-40));
+    console.log(`operator2:             ${operator2}`); 
   }
 
   // deployer
@@ -152,7 +167,7 @@ async function printBasis(slots, version) {
   let implementation = await readSlot(contractAddress, implSlot);
   console.log(`implementation:        ${parseAddress(implementation.slice(-40))}`);
 
-} 
+}
 
 
 
@@ -161,7 +176,7 @@ async function printBalances(slots){
 
   //event Transfer(address indexed from, address indexed to, uint256 value);
   const transfers = await proxiedToken.getPastEvents('Transfer', {
-    fromBlock: 0,
+    fromBlock: 1,
     toBlock: 'latest'
   });
 
@@ -203,7 +218,7 @@ async function printAllwances(slots){
 
   // event Approval(address indexed owner, address indexed spender, uint256 value);
   const approves = await proxiedToken.getPastEvents('Approval', {
-    fromBlock: 0,
+    fromBlock: 1,
     toBlock: 'latest'
   });
 
@@ -254,7 +269,7 @@ async function printProhibiteds(slots){
 
   //event Prohibition(address indexed prohibited, bool status, address indexed sender);
   const prohibiteds = await proxiedToken.getPastEvents('Prohibition', {
-    fromBlock: 0,
+    fromBlock: 1,
     toBlock: 'latest'
   });
 

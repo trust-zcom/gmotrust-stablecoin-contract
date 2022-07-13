@@ -12,5 +12,6 @@
     "pauser": "0xE6b48d76Bc4805ABF61F38A55F1D7C362c8BfdA8",
     "prohibiter": "0x628de71e90646fccfddcfd3e6c5d5d2a131c1f61",
     "burner": "0x0a812b6a0a407ba9cfd4ec64a2891b7eadf0b8b4",
-    "wiper": "0xa08e465e69af3e8a9e35d105c0c7827b2fcb8d35"
+    "wiper": "0xa08e465e69af3e8a9e35d105c0c7827b2fcb8d35",
+    "rescuer": ""
 }

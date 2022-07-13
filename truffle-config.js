@@ -60,7 +60,7 @@ module.exports = {
     },
     production: {
       network_id: "1",
-      provider: () => new HDWalletProvider(privateKeyProduction, "https://mainnet.infura.io/v3/<YOUR PROJECT ID>"),
+      provider: () => new HDWalletProvider(privateKeyProduction, "https://mainnet.infura.io/v3/<Infura PJ ID>"),
       gasPrice: 100000000000,
       gas: 4000000
     },
@@ -71,19 +71,19 @@ module.exports = {
     },
     ropsten: {
       network_id: "3",
-      provider: () => new HDWalletProvider(privateKey, "https://ropsten.infura.io/v3/<YOUR PROJECT ID>"),
+      provider: () => new HDWalletProvider(privateKey, "https://ropsten.infura.io/v3/<Infura PJ ID>"),
       gasPrice: 40000000000,
       gas: 4000000
     },
     kovan: {
       network_id: "42",
-      provider: () => new HDWalletProvider(privateKey, "https://kovan.infura.io/v3/<YOUR PROJECT ID>"),
+      provider: () => new HDWalletProvider(privateKey, "https://kovan.infura.io/v3/<Infura PJ ID>"),
       gasPrice: 20000000000,
       gas: 4000000
     }, 
     rinkeby: {
       network_id: "4",
-      provider: () => new HDWalletProvider(privateKey, "https://rinkeby.infura.io/v3/<YOUR PROJECT ID>"),
+      provider: () => new HDWalletProvider(privateKey, "https://rinkeby.infura.io/v3/<Infura PJ ID>"),
       //gasPrice: 20000000000,
       //as: 4000000
     },       
@@ -98,7 +98,7 @@ module.exports = {
   ],
   api_keys: {
     // Change to API_KEYS with yours. 
-    etherscan: "<YOUR ETHERSCAN API_KEYS>",
+    etherscan: "<Etherscan API KEY>",
   },
   // Configure your compilers
   compilers: {
@@ -107,8 +107,8 @@ module.exports = {
         optimizer: {
           enabled: true,
         }
-      }
-      // version: "0.5.1",    // Fetch exact version from solc-bin (default: truffle's version)
+      },
+      version: "0.5.8",    // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {

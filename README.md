@@ -2,7 +2,7 @@
 
 The GMO Trust token is an ERC-20 compatible smart contract. It allows minting, burning, pausing (of activity), freezing (of an individual address), and upgrading the contract with new features or to fix bugs.
 
-The smart contract is used to issue two stablecoins - GYEN is backed 1:1 by JPY and ZUSD is backed 1:1 by USD. You can learn more about fiat reserves, minting of new tokens, etc. in our [FAQ](https://stablecoin.z.com/).
+The smart contract is used to issue two stablecoins — GYEN is backed 1:1 by JPY and ZUSD is backed 1:1 by USD. You can learn more about fiat reserves, minting of new tokens, etc. in our [FAQ](https://stablecoin.z.com/).
 
 ## Stablecoin
 
@@ -43,7 +43,7 @@ The standard ERC-20 `approve()` and `transferFrom()` might cause a race conditio
 
 `minter` and `capper` are separate accounts. Their keys are managed on different physical devices and by different personnel, to ensure maximum security. 
 
-End users can burn tokens by calling `burn()` themselves - in such a case the end user would not receive the funds from the fiat reserve.
+End users can burn tokens by calling `burn()` themselves — in such a case the end user would not receive the funds from the fiat reserve.
 
 ## Prohibit
 

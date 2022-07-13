@@ -1,15 +1,15 @@
 {
   "contractName": "Common",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Common.sol\":\"Common\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Common.sol\":{\"keccak256\":\"0x01618465f4d8e87470a0720ff3165174aeb9627b6cef9e384fb8aeff2e72b351\",\"urls\":[\"bzzr://9337ba5a9c196c14611723dd49ec3d284aa6b5d8606041d7de08122e8e177aea\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3fe6080604052600080fdfea165627a7a723058207477104093f9cbbfad50405cf9128557a17f6e772eed7e7c7aad17f1699f9b0e0029",
-  "deployedBytecode": "0x6080604052600080fdfea165627a7a723058207477104093f9cbbfad50405cf9128557a17f6e772eed7e7c7aad17f1699f9b0e0029",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/usr0102794/gyen2022/contracts/contracts/Roles/Common.sol\":\"Common\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/usr0102794/gyen2022/contracts/contracts/Roles/Common.sol\":{\"keccak256\":\"0x01618465f4d8e87470a0720ff3165174aeb9627b6cef9e384fb8aeff2e72b351\",\"urls\":[\"bzzr://9337ba5a9c196c14611723dd49ec3d284aa6b5d8606041d7de08122e8e177aea\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3fe6080604052600080fdfea165627a7a723058208d9b1b04ec0dc4939921cd6546ef5b02414aa413bcc6c50f16e8da79048e39470029",
+  "deployedBytecode": "0x6080604052600080fdfea165627a7a723058208d9b1b04ec0dc4939921cd6546ef5b02414aa413bcc6c50f16e8da79048e39470029",
   "sourceMap": "24:298:6:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;24:298:6;;;;;;;",
   "deployedSourceMap": "24:298:6:-;;;;;",
   "source": "pragma solidity 0.5.8;\n\ncontract Common {\n    modifier isNotZeroAddress(address _account) {\n        require(_account != address(0), \"this account is the zero address\");\n        _;\n    }\n\n    modifier isNaturalNumber(uint256 _amount) {\n        require(0 < _amount, \"this amount is not a natural number\");\n        _;\n    }\n}",
-  "sourcePath": "/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Common.sol",
+  "sourcePath": "/Users/usr0102794/gyen2022/contracts/contracts/Roles/Common.sol",
   "ast": {
-    "absolutePath": "/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Common.sol",
+    "absolutePath": "/Users/usr0102794/gyen2022/contracts/contracts/Roles/Common.sol",
     "exportedSymbols": {
       "Common": [
         515
@@ -173,10 +173,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2426,
-                        2427
+                        3223,
+                        3224
                       ],
-                      "referencedDeclaration": 2427,
+                      "referencedDeclaration": 3224,
                       "src": "100:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -343,10 +343,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2426,
-                        2427
+                        3223,
+                        3224
                       ],
-                      "referencedDeclaration": 2427,
+                      "referencedDeclaration": 3224,
                       "src": "243:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -426,7 +426,7 @@
     "src": "0:322:6"
   },
   "legacyAST": {
-    "absolutePath": "/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Common.sol",
+    "absolutePath": "/Users/usr0102794/gyen2022/contracts/contracts/Roles/Common.sol",
     "exportedSymbols": {
       "Common": [
         515
@@ -590,10 +590,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2426,
-                        2427
+                        3223,
+                        3224
                       ],
-                      "referencedDeclaration": 2427,
+                      "referencedDeclaration": 3224,
                       "src": "100:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -760,10 +760,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2426,
-                        2427
+                        3223,
+                        3224
                       ],
-                      "referencedDeclaration": 2427,
+                      "referencedDeclaration": 3224,
                       "src": "243:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -848,7 +848,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.16",
-  "updatedAt": "2020-12-22T08:26:55.757Z",
+  "updatedAt": "2022-04-06T02:00:17.482Z",
   "devdoc": {
     "methods": {}
   },

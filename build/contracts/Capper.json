@@ -47,15 +47,15 @@
       "type": "event"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"capper\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"capacity\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"newCapacity\",\"type\":\"uint256\"},{\"indexed\":true,\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"Cap\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Capper.sol\":\"Capper\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Capper.sol\":{\"keccak256\":\"0x5bdcee8662e61dd282d6dd510392a0bc09610b8c5b0f988b8f10fa4114fdfaea\",\"urls\":[\"bzzr://f09e17a749d6e9cb905f3bc19938f4a363d19cc7d7db27cb7941bbfa966032b8\"]},\"/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Common.sol\":{\"keccak256\":\"0x01618465f4d8e87470a0720ff3165174aeb9627b6cef9e384fb8aeff2e72b351\",\"urls\":[\"bzzr://9337ba5a9c196c14611723dd49ec3d284aa6b5d8606041d7de08122e8e177aea\"]}},\"version\":1}",
-  "bytecode": "0x608060405260008055600180546001600160a01b031916905534801561002457600080fd5b5060b2806100336000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c806350a6aaf41460375780635cfc1a51146059575b600080fd5b603d6071565b604080516001600160a01b039092168252519081900360200190f35b605f6080565b60408051918252519081900360200190f35b6001546001600160a01b031681565b6000548156fea165627a7a723058202fe69a485bcfecba0f0bed08e4c9fb1fa44c1284a78f67b6edb2095e937f84580029",
-  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c806350a6aaf41460375780635cfc1a51146059575b600080fd5b603d6071565b604080516001600160a01b039092168252519081900360200190f35b605f6080565b60408051918252519081900360200190f35b6001546001600160a01b031681565b6000548156fea165627a7a723058202fe69a485bcfecba0f0bed08e4c9fb1fa44c1284a78f67b6edb2095e937f84580029",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"capper\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"capacity\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"newCapacity\",\"type\":\"uint256\"},{\"indexed\":true,\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"Cap\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/usr0102794/gyen2022/contracts/contracts/Roles/Capper.sol\":\"Capper\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/usr0102794/gyen2022/contracts/contracts/Roles/Capper.sol\":{\"keccak256\":\"0x5bdcee8662e61dd282d6dd510392a0bc09610b8c5b0f988b8f10fa4114fdfaea\",\"urls\":[\"bzzr://f09e17a749d6e9cb905f3bc19938f4a363d19cc7d7db27cb7941bbfa966032b8\"]},\"/Users/usr0102794/gyen2022/contracts/contracts/Roles/Common.sol\":{\"keccak256\":\"0x01618465f4d8e87470a0720ff3165174aeb9627b6cef9e384fb8aeff2e72b351\",\"urls\":[\"bzzr://9337ba5a9c196c14611723dd49ec3d284aa6b5d8606041d7de08122e8e177aea\"]}},\"version\":1}",
+  "bytecode": "0x608060405260008055600180546001600160a01b031916905534801561002457600080fd5b5060b2806100336000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c806350a6aaf41460375780635cfc1a51146059575b600080fd5b603d6071565b604080516001600160a01b039092168252519081900360200190f35b605f6080565b60408051918252519081900360200190f35b6001546001600160a01b031681565b6000548156fea165627a7a7230582077bf06dba7621cb09c39c694e01c7e6b3b85fbc8d344ebeb1b4dc8d7c067bfc70029",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c806350a6aaf41460375780635cfc1a51146059575b600080fd5b603d6071565b604080516001600160a01b039092168252519081900360200190f35b605f6080565b60408051918252519081900360200190f35b6001546001600160a01b031681565b6000548156fea165627a7a7230582077bf06dba7621cb09c39c694e01c7e6b3b85fbc8d344ebeb1b4dc8d7c067bfc70029",
   "sourceMap": "48:554:5:-;;;106:1;80:27;;113:34;;;-1:-1:-1;;;;;;113:34:5;;;48:554;5:2:-1;;;;30:1;27;20:12;5:2;48:554:5;;;;;;;",
   "deployedSourceMap": "48:554:5:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;48:554:5;;;;;;;;;;;;;;;;;;;;;;;;113:34;;;:::i;:::-;;;;-1:-1:-1;;;;;113:34:5;;;;;;;;;;;;;;80:27;;;:::i;:::-;;;;;;;;;;;;;;;;113:34;;;-1:-1:-1;;;;;113:34:5;;:::o;80:27::-;;;;:::o",
   "source": "pragma solidity 0.5.8;\n\nimport \"./Common.sol\";\n\ncontract Capper is Common {\n    uint256 public capacity = 0;\n    address public capper = address(0);\n\n    event Cap(uint256 indexed newCapacity, address indexed sender);\n\n    modifier onlyCapper() {\n        require(msg.sender == capper, \"the sender is not the capper\");\n        _;\n    }\n\n    modifier notMoreThanCapacity(uint256 _amount) {\n        require(_amount <= capacity, \"this amount is more than capacity\");\n        _;\n    }\n\n    function _cap(uint256 _amount) internal {\n        capacity = _amount;\n        emit Cap(capacity, msg.sender);\n    }\n}",
-  "sourcePath": "/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Capper.sol",
+  "sourcePath": "/Users/usr0102794/gyen2022/contracts/contracts/Roles/Capper.sol",
   "ast": {
-    "absolutePath": "/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Capper.sol",
+    "absolutePath": "/Users/usr0102794/gyen2022/contracts/contracts/Roles/Capper.sol",
     "exportedSymbols": {
       "Capper": [
         484
@@ -75,7 +75,7 @@
         "src": "0:22:5"
       },
       {
-        "absolutePath": "/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Common.sol",
+        "absolutePath": "/Users/usr0102794/gyen2022/contracts/contracts/Roles/Common.sol",
         "file": "./Common.sol",
         "id": 426,
         "nodeType": "ImportDirective",
@@ -344,7 +344,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2423,
+                            "referencedDeclaration": 3220,
                             "src": "263:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -420,10 +420,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2426,
-                        2427
+                        3223,
+                        3224
                       ],
-                      "referencedDeclaration": 2427,
+                      "referencedDeclaration": 3224,
                       "src": "255:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -557,10 +557,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2426,
-                        2427
+                        3223,
+                        3224
                       ],
-                      "referencedDeclaration": 2427,
+                      "referencedDeclaration": 3224,
                       "src": "396:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -709,7 +709,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2423,
+                          "referencedDeclaration": 3220,
                           "src": "582:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -833,7 +833,7 @@
     "src": "0:602:5"
   },
   "legacyAST": {
-    "absolutePath": "/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Capper.sol",
+    "absolutePath": "/Users/usr0102794/gyen2022/contracts/contracts/Roles/Capper.sol",
     "exportedSymbols": {
       "Capper": [
         484
@@ -853,7 +853,7 @@
         "src": "0:22:5"
       },
       {
-        "absolutePath": "/Users/usr0102794/GYEN-2020/contracts/contracts/Roles/Common.sol",
+        "absolutePath": "/Users/usr0102794/gyen2022/contracts/contracts/Roles/Common.sol",
         "file": "./Common.sol",
         "id": 426,
         "nodeType": "ImportDirective",
@@ -1122,7 +1122,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2423,
+                            "referencedDeclaration": 3220,
                             "src": "263:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1198,10 +1198,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2426,
-                        2427
+                        3223,
+                        3224
                       ],
-                      "referencedDeclaration": 2427,
+                      "referencedDeclaration": 3224,
                       "src": "255:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1335,10 +1335,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2426,
-                        2427
+                        3223,
+                        3224
                       ],
-                      "referencedDeclaration": 2427,
+                      "referencedDeclaration": 3224,
                       "src": "396:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1487,7 +1487,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2423,
+                          "referencedDeclaration": 3220,
                           "src": "582:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1616,7 +1616,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.16",
-  "updatedAt": "2020-12-22T08:26:55.756Z",
+  "updatedAt": "2022-04-06T02:00:17.481Z",
   "devdoc": {
     "methods": {}
   },
