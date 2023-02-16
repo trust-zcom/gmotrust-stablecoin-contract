@@ -86,7 +86,13 @@ module.exports = {
       provider: () => new HDWalletProvider(privateKey, "https://rinkeby.infura.io/v3/<Infura PJ ID>"),
       //gasPrice: 20000000000,
       //as: 4000000
-    },       
+    },
+    goerli: {
+      network_id: "5",
+      provider: () => new HDWalletProvider(privateKey, "https://goerli.infura.io/v3/<Infura PJ ID>"),
+      //gasPrice: 20000000000,
+      //gas: 6000000
+    },
   },
 
   // Set default mocha options here, use special reporters etc.
